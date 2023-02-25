@@ -24,11 +24,11 @@ uint64_t nPrime(uint64_t n) {
     int k = 1;
     int value = 2;
     while (k < n) {
-        for (int i = 2 * p; i < SIZE; i += value)
+        for (int i = 2 * value; i < SIZE; i += value)
             a[i] = 0;
         for (int i = value + 1; i < SIZE; ++i)
             if (a[i] == 1) {
-                p = i;
+                value = i;
                 break;
             }
         ++k;
@@ -38,7 +38,7 @@ uint64_t nPrime(uint64_t n) {
 }
 
 uint64_t nextPrime(uint64_t value) {
-    int b = 0;
+int b = 0;
     for (int k = 0; k < value; k++) {
         value += 1;
         for (int j = 0; j <= value; ++j) {
