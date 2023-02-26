@@ -38,30 +38,19 @@ uint64_t nPrime(uint64_t n) {
 }
 
 uint64_t nextPrime(uint64_t value) {
-int b = 0;
-    for (int k = 0; k < value; k++) {
-        value += 1;
-        for (int j = 0; j <= value; ++j) {
-            if (value % j == 0)
-                b += 1;
+    for (uint64_t m = value + 1; ; ++m) {
+        if (checkPrime(m)) {
+            return m;
         }
-        if (b == 2)
-            return value;
-        if (value)
-            k += value;
     }
 }
 
 uint64_t sumPrime(uint64_t hbound) {
-    int m = 0;
-    int l = 0;
-    for (int c = 2; c < hbound; ++c) {
-        for (int q = 1; q <= c; ++q) {
-            if (c % q == 0)
-                l += 1;
+    uint64_t s = 0;
+    for (uint64_t c = 2; c <= hbound; ++c) {
+        if (checkPrime(i)) {
+            s += c;
         }
-        if (l == 2)
-            m += c;
     }
-    return m;
+    return s;
 }
